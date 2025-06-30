@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Welcome to My Portfolio!</h1>
+                <p>Hi, I'm [Your Name], a passionate [Your Profession/Interest]. Explore my work and learn more about me.</p>
+                <a href="#about" class="btn">Learn More</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="skills">
+                        <h3>Skills</h3>
+                        <ul>
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>[Your Skill 1]</li>
+                            <li>[Your Skill 2]</li>
+                            <li>[Your Skill 3]</li>
+                        </ul>
+                    </div>
+                    <div class="experience">
+                        <h3>Experience</h3>
+                        <div class="job">
+                            <h4>[Job Title] at [Company Name]</h4>
+                            <p>[Dates, e.g., Jan 2022 - Present]</p>
+                            <ul>
+                                <li>[Responsibility/Achievement 1]</li>
+                                <li>[Responsibility/Achievement 2]</li>
+                            </ul>
+                        </div>
+                        </div>
+                    <div class="education">
+                        <h3>Education</h3>
+                        <div class="degree">
+                            <h4>[Degree Name] - [University/Institution Name]</h4>
+                            <p>[Dates, e.g., Sep 2018 - May 2022]</p>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <form id="contactForm" action="php/send_email.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                    <div id="formMessage"></div>
+                </form>
+                <div class="social-links">
+                    <h3>Connect with Me</h3>
+                    <ul>
+                        <li><a href="[Your LinkedIn Profile]" target="_blank">LinkedIn</a></li>
+                        <li><a href="[Your GitHub Profile]" target="_blank">GitHub</a></li>
+                        <li><a href="[Your Twitter Profile]" target="_blank">Twitter</a></li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
