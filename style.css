@@ -1,0 +1,257 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header and Navigation */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #ffd700; /* Gold color for hover */
+}
+
+/* Hero Section (Home) */
+.hero {
+    background: url('../img/hero-bg.jpg') no-repeat center center/cover; /* Add a background image in an 'img' folder */
+    color: #fff;
+    text-align: center;
+    padding: 150px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 0;
+    background: #f4f4f4;
+}
+
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.about-content > div {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px; /* Ensures content doesn't get too squished */
+}
+
+.about-content h3 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.about-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-content ul li {
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+}
+
+.contact-section form {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-section .btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+}
+
+#formMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.social-links ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.social-links ul li a:hover {
+    color: #0056b3;
+}
+
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-content > div {
+        width: 90%;
+    }
+
+    .contact-section form {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul li {
+        margin: 0 8px;
+    }
+
+    .hero {
+        padding: 100px 0;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+}
