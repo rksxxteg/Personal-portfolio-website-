@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delicious Bites - Restaurant Menu</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header */
+    header {
+      background-color: #ff7043;
+      padding: 1.2rem 2rem;
+      color: white;
+      box-shadow: 0 4px 6px rgb(255 112 67 / 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-align: center;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      margin-bottom: 2rem;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto 3rem auto;
+    }
+
+    /* Menu Section */
+    #menu {
+      margin-bottom: 3rem;
+    }
+
+    #menu h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #ff7043;
+      letter-spacing: 2px;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-card {
+      background-color: #fff3e0;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgb(255 112 67 / 0.25);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgb(255 112 67 / 0.45);
+    }
+
+    .menu-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 3px solid #ff7043;
+    }
+
+    .menu-content {
+      padding: 1rem 1.2rem 1.5rem;
+    }
+
+    .menu-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 0.6rem;
+    }
+
+    .menu-desc {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: #5d4037;
+    }
+
+    .menu-price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #bf360c;
+    }
+
+    /* About Section */
+    #about {
+      background-color: #ffecb3;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      box-shadow: 0 5px 12px rgb(255 198 102 / 0.3);
+    }
+
+    #about h2 {
+      color: #ff7043;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: 1.5px;
+    }
+
+    #about p {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #6d4c41;
+    }
+
+    /* Contact Section */
+    #contact {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      padding: 1.5rem;
+      background-color: #efebe9;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgb(150 120 90 / 0.2);
+    }
+
+    #contact h2 {
+      color: #ff7043;
+      font-size: 1.9rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: 1.5px;
+    }
+
+    #contact form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #6d4c41;
+    }
+
+    input, textarea {
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.2rem;
+      border: 2px solid #d7ccc8;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #ff7043;
+      outline: none;
+      box-shadow: 0 0 5px #ff7043aa;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    button.submit-btn {
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      padding: 0.85rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button.submit-btn:hover {
+      background-color: #e64a19;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #ff7043;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      .hero {
+        font-size: 2rem;
+        height: 220px;
+      }
+      .menu-items {
+        grid-template-columns: 1fr;
+      }
+      #about p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header role="banner">
+    <h1>Laxmi fast food </h1>
+  </header>
+
+  <section class="hero" aria-label="Restaurant promotional banner">
+    Taste the Best Veg Momo, Manchurian & Noodles in Town
+  </section>
+
+  <main class="container" role="main">
+    <section id="menu" aria-labelledby="menu-heading">
+      <h2 id="menu-heading">Our Menu</h2>
+      <div class="menu-items">
+        <article class="menu-card" tabindex="0" aria-label="Veg Momo">
+          <img src="https://www.bigbasket.com/media/uploads/recipe/w-l/3506_2_1.jpg" alt="Delicious steamed veg momo" class="menu-image" />
+          <div class="menu-content">
+            <h3 class="menu-title">Veg Momo</h3>
+            <p class="menu-desc">Steamed dumplings filled with fresh assorted vegetables, served with spicy chili sauce.</p>
+            <div class="menu-price">₹80</div>
+          </div>
+        </article>
+
+        <article class="menu-card" tabindex="0" aria-label="Chilli Garlic Manchurian">
+          <img src="https://hebbarskitchen.com/wp-content/uploads/2022/11/Cabbage-Manchurian-Recipe-Dry-Patta-Veg-Gobi-Manchurian-Dry-Cabbage-Veg-Manchurian-Recipe-2-1365x2048.jpeg.webp" alt="Chilli garlic Manchurian dish" class="menu-image" />
+          <div class="menu-content">
+            <h3 class="menu-title">Chilli Garlic Manchurian</h3>
+            <p class="menu-desc">Crispy fried vegetable balls tossed in a tangy and spicy chili garlic sauce.</p>
+            <div class="menu-price">₹80</div>
+          </div>
+        </article>
+
+        <article class="menu-card" tabindex="0" aria-label="Vegetable Noodles">
+          <img src="https://shwetainthekitchen.com/wp-content/uploads/2023/03/vegetable-noodles.jpg" alt="Plate of veg noodles" class="menu-image" />
+          <div class="menu-content">
+            <h3 class="menu-title">Vegetable Noodles</h3>
+            <p class="menu-desc">Stir-fried noodles loaded with fresh veggies and aromatic sauces for a perfect flavor.</p>
+            <div class="menu-price">₹80</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Us</h2>
+      <p>
+        At Delicious Bites, we bring the authentic flavors of Asian street food right to your table. Our chefs use fresh ingredients and traditional recipes to create mouthwatering dishes that will keep you coming back for more.
+      </p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Us</h2>
+      <form action="#" method="post" novalidate>
+        <label for="name">Name <sup aria-label="required">*</sup></label>
+        <input type="text" id="name" name="name" placeholder="Your name" required minlength="2" />
+
+        <label for="email">Email <sup aria-label="required">*</sup></label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+        <label for="message">Message <sup aria-label="required">*</sup></label>
+        <textarea id="message" name="message" placeholder="Your message..." required minlength="10"></textarea>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; laxmi fast food. All rights reserved.
+  </footer>
+
+</body>
+</html>
