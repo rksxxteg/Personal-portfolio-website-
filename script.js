@@ -1,33 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const formData = new FormData(this);
-
-            fetch('php/send_email.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json()) // Expecting JSON response from PHP
-            .then(data => {
-                if (data.success) {
-                    formMessage.style.color = 'green';
-                    formMessage.textContent = 'Message sent successfully!';
-                    contactForm.reset(); // Clear the form
-                } else {
-                    formMessage.style.color = 'red';
-                    formMessage.textContent = 'Error: ' + data.message;
-                }
-            })
-            .catch(error => {
-                formMessage.style.color = 'red';
-                formMessage.textContent = 'An error occurred. Please try again later.';
-                console.error('Fetch error:', error);
-            });
+<script>
+    // 1. One-click Email Copy with Toast Notification
+    const toast = document.getElementById('toast');
+    document.querySelectorAll('.copy-email-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const email = btn.getAttribute('data-email');
+        navigator.clipboard.writeText(email).then(() => {
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2500);
         });
+      });
+    });
+
+    // 2. Light / Dark Mode Toggle with LocalStorage Persistence
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem('portfolio-theme');
+
+    if (savedTheme) {
+      root.setAttribute('data-theme', savedTheme);
     }
-});
+
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('portfolio-theme', next);
+    });
+  </script>
